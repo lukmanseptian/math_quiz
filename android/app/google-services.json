@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "496415477718",
+    "project_id": "math-quiz-7a9ba",
+    "storage_bucket": "math-quiz-7a9ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496415477718:android:1149aa516e8f08fe6a9e77",
+        "android_client_info": {
+          "package_name": "com.mathquiz.id"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByICWiNbld05U3q8MUxQO4gm_4vt7BAZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
