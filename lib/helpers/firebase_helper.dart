@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:math_quiz/helpers/index.dart';
 import 'package:math_quiz/models/index.dart';
 
@@ -107,5 +110,19 @@ class FirebaseHelper {
         .collection('parts')
         .doc(documentId)
         .delete();
+  }
+
+  static Future<String?> uploadImage(File file) async {
+    String fileName = file.path.split('/').last;
+
+    Reference storageRef =
+        FirebaseStorage.instance.ref().child('question_images/$fileName');
+
+    UploadTask uploadTask = storageRef.putFile(file);
+
+    TaskSnapshot taskSnapshot = await uploadTask;
+    String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+
+    return downloadUrl;
   }
 }

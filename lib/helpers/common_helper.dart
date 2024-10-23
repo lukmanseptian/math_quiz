@@ -1,4 +1,7 @@
+import 'dart:io';
 import 'dart:math';
+
+import 'package:file_picker/file_picker.dart';
 
 class CommonHelper {
   const CommonHelper();
@@ -23,5 +26,17 @@ class CommonHelper {
     final String secondsStr = remainingSeconds.toString().padLeft(2, '0');
 
     return '$minutesStr:$secondsStr';
+  }
+
+  static Future<File?> selectImage() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['jpg', 'jpeg', 'png'],
+    );
+
+    if (result != null && result.files.single.path != null) {
+      return File(result.files.single.path!);
+    }
+    return null;
   }
 }
